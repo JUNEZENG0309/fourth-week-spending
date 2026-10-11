@@ -85,24 +85,24 @@
   <main class="wrap">
     <header class="topbar">
       <div class="brand"><span class="brandmark" aria-hidden="true">◔</span><span>消费账本</span></div>
-      <div class="period">第四周 · 30 笔记录</div>
+      <div class="period">第四周 · 28 笔记录</div>
     </header>
     <section class="hero" aria-label="消费总览">
       <div>
         <div class="eyebrow">第四周总支出</div>
-        <div class="hero-total"><span class="yen">¥</span><span id="total">1,254.18</span></div>
-        <div class="hero-note">餐饮是最大支出项，占本周消费的 <strong id="foodShare">53.7%</strong>。</div>
+        <div class="hero-total"><span class="yen">¥</span><span id="total">882.42</span></div>
+        <div class="hero-note">餐饮是最大支出项，占本周消费的 <strong id="foodShare">76.3%</strong>。</div>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><span>消费笔数</span><strong id="entryCount">30</strong><small>笔</small></div>
-        <div class="hero-stat"><span>最大单笔</span><strong id="largestAmount">¥300.96</strong><small id="largestName">裤子</small></div>
+        <div class="hero-stat"><span>消费笔数</span><strong id="entryCount">28</strong><small>笔</small></div>
+        <div class="hero-stat"><span>最大单笔</span><strong id="largestAmount">¥88.10</strong><small id="largestName">太二</small></div>
       </div>
     </section>
     <div class="grid">
       <section class="card" aria-labelledby="category-title">
         <div class="section-head"><h2 id="category-title">花在了哪里</h2><span class="minor">按用途分类</span></div>
         <div class="category-body">
-          <div class="donut" id="donut" role="img" aria-label="消费分类占比"><div class="donut-center"><span id="donutLabel">餐饮</span><strong id="donutValue">¥673.01</strong><small id="donutPercent">53.7%</small></div></div>
+          <div class="donut" id="donut" role="img" aria-label="消费分类占比"><div class="donut-center"><span id="donutLabel">餐饮</span><strong id="donutValue">¥673.01</strong><small id="donutPercent">76.3%</small></div></div>
           <div class="legend" id="legend"></div>
         </div>
       </section>
@@ -112,7 +112,7 @@
       </section>
     </div>
     <section class="card records" aria-labelledby="records-title">
-      <div class="records-heading"><h2 id="records-title">逐笔明细 <span class="record-count" id="visibleCount">30 笔</span></h2></div>
+      <div class="records-heading"><h2 id="records-title">逐笔明细 <span class="record-count" id="visibleCount">28 笔</span></h2></div>
       <div class="filters" id="filters" aria-label="按分类筛选明细"></div>
       <div class="table-head" aria-hidden="true"><div>序号</div><div>项目</div><div>分类</div><div>金额</div></div>
       <div id="recordList"></div>
@@ -122,13 +122,13 @@
   <script>
     const rows = [
       [2498,'袁记云饺','餐饮'],[2190,'水','饮水'],[5670,'达美乐','餐饮'],[3610,'酸菜鱼','餐饮'],[550,'东方树叶','餐饮'],
-      [6080,'酱板鸭','餐饮'],[1460,'棉签','日用品'],[2990,'抽纸','日用品'],[7080,'湿巾','日用品'],[2890,'大米先生','餐饮'],
-      [5090,'KFC','餐饮'],[30096,'裤子','服饰'],[2500,'袁记云饺','餐饮'],[2184,'食堂','餐饮'],[2570,'咖喱饭','餐饮'],
+      [6080,'酱板鸭','餐饮'],[1460,'棉签','日用品'],[2990,'抽纸','日用品'],[2890,'大米先生','餐饮'],
+      [5090,'KFC','餐饮'],[2500,'袁记云饺','餐饮'],[2184,'食堂','餐饮'],[2570,'咖喱饭','餐饮'],
       [880,'干燥剂','日用品'],[2500,'饺子','餐饮'],[1490,'麦当劳','餐饮'],[4580,'大米先生','餐饮'],[4041,'洗鞋','洗护'],
       [3200,'袁记云饺','餐饮'],[1199,'瑞幸','餐饮'],[3640,'KFC','餐饮'],[1538,'卤肉饭','餐饮'],[900,'洗衣','洗护'],
       [980,'烘干','洗护'],[8810,'太二','餐饮'],[7500,'网线','数码'],[3300,'牛河','餐饮'],[3402,'冰淇淋','餐饮']
     ];
-    const palette = {'餐饮':'#6ccfbc','服饰':'#f39f84','日用品':'#f5c66a','数码':'#8fa6ec','洗护':'#a8c29a','饮水':'#77bde0'};
+    const palette = {'餐饮':'#6ccfbc','日用品':'#f5c66a','数码':'#8fa6ec','洗护':'#a8c29a','饮水':'#77bde0'};
     const money = cents => '¥' + (cents/100).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
     const total = rows.reduce((sum,row)=>sum+row[0],0);
     const categoryTotals = Object.entries(rows.reduce((out,[amount,,category])=>(out[category]=(out[category]||0)+amount,out),{})).sort((a,b)=>b[1]-a[1]);
